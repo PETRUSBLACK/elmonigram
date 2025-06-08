@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Club Sandwich Recipe</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8ecef; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #f8f9fa; /* Lighter header background */
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #0056b3; /* A nice blue for the main title */
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        main {
+            max-width: 800px; /* Constrain main content width */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        .recipe-intro {
+            display: flex;
+            align-items: flex-start; /* Align image and text at the top */
+            gap: 25px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ced4da;
+        }
+
+        .recipe-image {
+            width: 350px; /* Adjust as needed for better visibility */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+
+        .recipe-intro p {
+            flex: 1;
+            font-size: 1.1em;
+            color: #495057;
+        }
+
+        h2 {
+            color: #28a745; /* A fresh green for section titles */
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        /* Ingredients and Instructions Styling */
+        .ingredients ul,
+        .instructions ol {
+            list-style-type: none; /* Remove default bullets/numbers */
+            padding: 0;
+            margin: 0;
+        }
+
+        .ingredients li,
+        .instructions li {
+            background-color: #fefefe;
+            border: 1px solid #e9ecef;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .instructions li {
+            counter-reset: step-counter; /* Initialize counter for each list item */
+        }
+
+        .instructions li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background-color: #28a745; /* Green for numbers */
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* For ingredient checkboxes (if using JavaScript) */
+        .ingredients li.checked {
+            text-decoration: line-through;
+            color: #888;
+            background-color: #e9f5ee; /* Lighter background when checked */
+        }
+
+        .notes {
+            background-color: #d1ecf1; /* Light blue for notes */
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #0c5460;
+        }
+
+        .notes p {
+            margin-bottom: 8px;
+        }
+
+        .notes strong {
+            color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 0.9em;
+            background-color: #f8f9fa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .recipe-intro {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .recipe-image {
+                width: 90%; /* Adjust width on smaller screens */
+                margin-bottom: 20px;
+            }
+
+            main {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            header {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .ingredients li,
+            .instructions li {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Classic Club Sandwich</h1>
+        <p>A timeless triple-decker delight, perfect for lunch or a light dinner!</p>
+    </header>
+
+    <main>
+        <section class="recipe-intro">
+            <img src="club-sandwich-image.jpg" alt="Classic Club Sandwich" class="recipe-image">
+            <p>The Club Sandwich is a beloved sandwich, often attributed to American clubhouses in the late 19th or early 20th century. It typically features toasted bread, sliced cooked poultry (usually turkey or chicken), bacon, lettuce, tomato, and mayonnaise, often served as a triple-decker.</p>
+        </section>
+
+        <section class="ingredients">
+            <h2>Ingredients</h2>
+            <ul id="ingredient-list">
+                <li>3 slices of white or whole wheat bread per sandwich</li>
+                <li>2-3 slices cooked turkey or chicken breast (deli-style or leftover roasted)</li>
+                <li>2-3 slices cooked crispy bacon</li>
+                <li>2-3 leaves of crisp lettuce (e.g., romaine or iceberg)</li>
+                <li>2-3 slices ripe tomato</li>
+                <li>Mayonnaise (to taste)</li>
+                <li>Salt and black pepper (to taste)</li>
+                <li>Optional: Cheese (e.g., Swiss or cheddar), pickles for serving</li>
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2>Instructions</h2>
+            <ol id="instruction-steps">
+                <li>**Prepare Your Ingredients:** Cook bacon until crispy. If using fresh chicken or turkey, cook and slice it. Wash and dry lettuce and tomato; slice tomato thinly.</li>
+                <li>**Toast the Bread:** Lightly toast all three slices of bread per sandwich. You want it warm and slightly crisp, not hard.</li>
+                <li>**Assemble the First Layer:** On one slice of toasted bread, spread a generous layer of mayonnaise. Add the lettuce leaves, then the sliced tomato. Season lightly with salt and pepper.</li>
+                <li>**Add the Middle Bread:** Place a second slice of toasted bread directly on top of the tomato/lettuce layer. Spread mayonnaise on the top side of this middle slice.</li>
+                <li>**Assemble the Second Layer:** Arrange the sliced turkey or chicken breast on the mayonnaise-coated middle slice. Layer the crispy bacon on top of the poultry.</li>
+                <li>**Complete the Sandwich:** Place the third and final slice of toasted bread on top of the bacon and poultry layer.</li>
+                <li>**Secure and Cut:** To hold the sandwich together and make it easier to eat, insert two or four toothpicks (or small skewers) through the sandwich, usually in a diagonal pattern. Carefully cut the sandwich into halves or quarters, following the line of the toothpicks.</li>
+                <li>**Serve:** Serve immediately, often with a side of potato chips, french fries, or a small salad.</li>
+            </ol>
+        </section>
+
+        <section class="notes">
+            <h2>Chef's Notes</h2>
+            <p><strong>Tip:</strong> For best results, ensure your bacon is truly crispy and your lettuce and tomato are fresh and dry.</p>
+            <p><strong>Variation:</strong> Some variations include a fried egg, ham, or a different type of cheese. Feel free to customize to your liking!</p>
+            <p><strong>Presentation:</strong> Arranging the cut halves/quarters neatly on a plate with the exposed layers facing up makes for an appetizing presentation.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Recipe Website. Enjoy your sandwich!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ingredientList = document.getElementById('ingredient-list');
+
+            if (ingredientList) {
+                ingredientList.addEventListener('click', (event) => {
+                    // Check if the clicked element is an <li> within the ingredient list
+                    if (event.target.tagName === 'LI') {
+                        event.target.classList.toggle('checked');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
